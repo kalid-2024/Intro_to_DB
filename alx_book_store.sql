@@ -4,35 +4,35 @@ USE alx_book_store;
 
 
 CREATE TABLE Author (
-    author_id Primary Key,
+    author_id PRIMARY KEY,
     author_name VARCHAR(215)
 );
 
 CREATE TABLE Books (
-    book_id Primary Key,
+    book_id PRIMARY KEY,
     title VARCHAR(130),
-    author_id Foreign Key referencing Authors table,
+    author_id FOREIGN KEY referencing Authors table,
     price DOUBLE,
     publication_date DATE
 );
 
 CREATE TABLE Customers (
-    customer_id Primary Key,
+    customer_id PRIMARY KEY,
     customer_name VARCHAR(215) NOT NULL,
     email VARCHAR(215) UNIQUE NOT NULL,
     address TEXT
 );
 
 CREATE TABLE Orders (
-    order_id Primary Key,
-    customer_id Foreign Key referencing Customers table,
+    order_id PRIMARY KEY,
+    customer_id FOREIGN KEY  referencing Customers table,
     order_date DATE
 );
 
 CREATE TABLE Order_Details (
-    orderdetailid Primary Key,
-    order_id Foreign Key referencing Orders table,
-    book_id Foreign Key referencing Books table,
+    orderdetailid PRIMARY KEY,
+    order_id FOREIGN KEY  referencing Orders table,
+    book_id FOREIGN KEY  referencing Books table,
     quantity DOUBLE
 );
 
